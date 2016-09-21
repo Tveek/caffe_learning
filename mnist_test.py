@@ -77,8 +77,8 @@ def gen_solver(solver_file, train_net, test_net):
 
 # 开始训练
 def training(solver_proto):
-    #caffe.set_device(0)
-    caffe.set_mode_cpu()
+    caffe.set_device(0)
+    caffe.set_mode_gpu()
     solver = caffe.SGDSolver(solver_proto)
     solver.solve()
 
