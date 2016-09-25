@@ -19,7 +19,9 @@ pf = open(params_txt, 'w')
 
 # 让caffe以测试模式读取网络参数
 net = caffe.Net(MODEL_FILE, PRETRAIN_FILE, caffe.TEST)
-net.save(WRITE_FILE)
+#net2=caffe.Net(MODEL_FILE, caffe.TRAIN)
+#net2.CopyTrainedLayersFrom(net.params)
+#net2.save(WRITE_FILE)
 # 遍历每一层
 #for param_name in net.params.keys():
 param_name="InnerProduct2"
