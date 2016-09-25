@@ -11,6 +11,7 @@ np.set_printoptions(threshold='nan')
 MODEL_FILE = 'mnist/deploy.prototxt'
 # 预先训练好的caffe模型
 PRETRAIN_FILE = 'mnist/lenet_iter_9380.caffemodel'
+WRITE_FILE ='mnist/my_lenet.caffemodel'
 
 # 保存参数的文件
 params_txt = 'params.txt'
@@ -18,7 +19,7 @@ pf = open(params_txt, 'w')
 
 # 让caffe以测试模式读取网络参数
 net = caffe.Net(MODEL_FILE, PRETRAIN_FILE, caffe.TEST)
-
+net.save(WRITE_FILE)
 # 遍历每一层
 #for param_name in net.params.keys():
 param_name="InnerProduct2"
