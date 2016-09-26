@@ -33,10 +33,13 @@ net=param
 for layers in param.layer:
     if layers.name==param_name:
         print "weight shape"
-        print layers.blobs[0].shape.dim
+        dim = layers.blobs[0].shape.dim
+        print dim
         print "bias shape"
         print layers.blobs[1].shape.dim
         layers.blobs[0].data[0]=0
+        weight=np.array(layers.blobs[0].data).reshape(dim[0],dim[1])
+        print weight
         #netlayer = layers
 
 net_str=net.SerializeToString()
