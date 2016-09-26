@@ -5,7 +5,7 @@ import numpy as np
 
 # 使输出的参数完全显示
 # 若没有这一句，因为参数太多，中间会以省略号“……”的形式代替
-np.set_printoptions(threshold='nan')
+#np.set_printoptions(threshold='nan')
 
 # deploy文件
 MODEL_FILE = 'mnist/deploy.prototxt'
@@ -32,7 +32,10 @@ net=param
 
 for layers in param.layer:
     if layers.name==param_name:
-        print layers.blobs[0].data[0]
+        print "weight shape"
+        print layers.blobs[0].shape.dim
+        print "bias shape"
+        print layers.blobs[1].shape.dim
         layers.blobs[0].data[0]=0
         #netlayer = layers
 
